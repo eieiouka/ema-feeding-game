@@ -141,11 +141,9 @@ export default function App() {
     if (activeFood === "桜羽エマ") {
       setIsEnding(true);
 
-      setTimeout(() => {
-        setVideoReady(false);
-
-        setCurrentVideo(null);
-      }, 80);
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
 
       return;
     }
@@ -155,6 +153,12 @@ export default function App() {
     setCurrentVideo(null);
 
     setActiveFood(null);
+
+    if (bgmRef.current) {
+      bgmRef.current.play().catch((e) => {
+        console.log("BGM再開失敗", e);
+      });
+    }
   };
 
   return (
@@ -170,11 +174,7 @@ export default function App() {
 
         <div className="game-screen">
           <img
-            src={
-              isEnding
-                ? "/images/fin.png"
-                : "/images/normal.png"
-            }
+            src="/images/normal.png"
             alt="桜羽エマ"
             className={`main-image normal-image ${
               videoReady ? "hidden" : ""
