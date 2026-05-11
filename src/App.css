@@ -328,18 +328,23 @@ body {
   }
 
   .game-screen {
-    width: calc(100vw - 12px);
-    max-width: calc(100vw - 12px);
+    width: calc(100% - 12px);
+    max-width: calc(100% - 12px);
 
     border-radius: 16px;
 
     border-width: 3px;
+
+    box-shadow:
+      0 0 18px rgba(255, 100, 170, 0.25);
   }
 
   .foods {
     width: calc(100% - 16px);
 
     gap: 8px;
+
+    overflow-x: hidden;
   }
 
   .food-button {
