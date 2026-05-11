@@ -14,7 +14,7 @@ body,
 
   background: #1b0b12;
 
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 body {
@@ -27,7 +27,7 @@ body {
     "Hiragino Maru Gothic ProN",
     sans-serif;
 
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 /* =========================
