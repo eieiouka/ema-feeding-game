@@ -117,7 +117,7 @@ export default function App() {
 
     const delay =
       activeFood === "桜羽エマ"
-        ? 200
+        ? 0
         : 0;
 
     setTimeout(() => {
@@ -156,7 +156,7 @@ export default function App() {
 
     if (bgmRef.current) {
       bgmRef.current.currentTime = 0;
-      
+
       bgmRef.current.play().catch((e) => {
         console.log("BGM再開失敗", e);
       });
