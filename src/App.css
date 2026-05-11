@@ -328,7 +328,8 @@ body {
   }
 
   .game-screen {
-    max-width: calc(100% - 12px);
+    width: calc(100vw - 12px);
+    max-width: calc(100vw - 12px);
 
     border-radius: 16px;
 
