@@ -63,7 +63,7 @@ export default function App() {
       const isMobile =
         /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-      bgmRef.current.volume = isMobile ? 0.25 : 0.5;
+      bgmRef.current.volume = isMobile ? 0.1 : 0.5;
     }
 
     try {
