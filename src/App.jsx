@@ -155,6 +155,8 @@ export default function App() {
     setActiveFood(null);
 
     if (bgmRef.current) {
+      bgmRef.current.currentTime = 0;
+      
       bgmRef.current.play().catch((e) => {
         console.log("BGM再開失敗", e);
       });
