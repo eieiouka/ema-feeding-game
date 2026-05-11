@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1b0b12;
+  font-family: "Yu Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================
+   START OVERLAY
+========================= */
+
+.start-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+}
+
+.overlay-bg {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+}
+
+.start-button {
+  position: relative;
+  z-index: 2;
+
+  border: none;
+  padding: 24px 56px;
+  border-radius: 999px;
+
+  font-size: 32px;
+  font-weight: 900;
+
+  background: linear-gradient(180deg, #ffb8d7, #ff78b0);
+  color: white;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 0 30px rgba(255, 120, 176, 0.5),
+    0 8px 0 #9b315b;
+
+  transition:
+    transform 0.15s,
+    opacity 0.2s;
+}
+
+.start-button:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.start-button:active {
+  transform: translateY(3px) scale(0.98);
+}
+
+/* =========================
+   GAME
+========================= */
+
+.app {
+  min-height: 100vh;
+  padding: 6px 18px 36px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 26px;
+
+  color: #fff8fb;
+  font-size: clamp(28px, 5vw, 54px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-align: center;
+
+  text-shadow:
+    0 3px 0 #6b1f34,
+    0 0 16px rgba(255, 160, 200, 0.85);
+}
+
+.title span {
+  color: #ff7fbd;
+}
+
+.game-screen {
+  position: relative;
+
+  width: 960px;
+  aspect-ratio: 16 / 9;
+
+  border-radius: 24px;
+  overflow: hidden;
+
+  border: 4px solid rgba(255, 170, 210, 0.9);
+
+  background: #12070c;
+
+  box-shadow:
+    0 0 30px rgba(255, 100, 170, 0.35),
+    0 0 80px rgba(255, 80, 150, 0.18);
+
+  margin-bottom: 28px;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.normal-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  opacity: 1;
+}
+
+.normal-image.hidden {
+  opacity: 0;
+}
+
+.eat-video {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.eat-video.show {
+  opacity: 1;
+}
+
+.foods {
+  display: flex;
+  gap: 14px;
+
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+.food-button {
+  width: 160px;
+
+  border: none;
+  border-radius: 20px;
+
+  padding: 16px 12px;
+
+  background: linear-gradient(180deg, #ffd1e4, #ff91c2);
+  color: #4b1026;
+
+  font-size: 20px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 0 #9b315b;
+
+  transform: scale(0.9);
+
+  transition:
+    transform 0.15s,
+    opacity 0.15s,
+    filter 0.15s,
+    box-shadow 0.15s;
+}
+
+.food-button:hover {
+  transform: scale(0.9) translateY(-3px);
+}
+
+.food-button:active {
+  transform: scale(0.9) translateY(4px);
+  box-shadow: 0 4px 0 #9b315b;
+}
+
+.food-button:disabled {
+  cursor: not-allowed;
+}
+
+.food-button.disabled {
+  background: #888;
+  color: #ddd;
+
+  box-shadow: 0 8px 0 #555;
+
+  opacity: 0.65;
+}
+
+.food-button.disabled:hover {
+  transform: scale(0.9);
+}
+
+.food-button.active-food {
+  background: linear-gradient(
+    180deg,
+    #fff3a8,
+    #ffb13b
+  );
+
+  color: #4b2400;
+
+  box-shadow:
+    0 8px 0 #a85a00,
+    0 0 22px rgba(255, 210, 80, 0.95);
+
+  transform: scale(0.9);
+}
+
+.food-button.inactive-food {
+  opacity: 0.35;
+  filter: grayscale(0.6);
+}
+
+.food-emoji {
+  display: block;
+  font-size: 38px;
+  margin-bottom: 6px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+  .game-screen {
+    width: 96vw;
+  }
+
+  .foods {
+    gap: 8px;
+  }
+
+  .food-button {
+    width: 42vw;
+    font-size: 16px;
+  }
+
+  .food-emoji {
+    font-size: 30px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .start-button {
+    font-size: 24px;
+    padding: 20px 42px;
+  }
+}
