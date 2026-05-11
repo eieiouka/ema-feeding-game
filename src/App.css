@@ -323,17 +323,31 @@ body {
 ========================= */
 
 @media (max-width: 900px) {
+  .app {
+    width: 100%;
+    max-width: 100%;
+    padding: 6px 0 28px;
+  }
+
+  .title {
+    width: 100%;
+    padding: 0 12px;
+    font-size: 25px;
+  }
+
   .game-screen {
-    width: 96vw;
+    width: calc(100% - 16px);
+    border-radius: 16px;
+    border-width: 3px;
   }
 
   .foods {
+    width: 100%;
     gap: 8px;
   }
 
   .food-button {
     width: 42vw;
-
     font-size: 16px;
   }
 
@@ -341,13 +355,8 @@ body {
     font-size: 30px;
   }
 
-  .title {
-    font-size: 25px;
-  }
-
   .start-button {
     font-size: 24px;
-
     padding: 20px 42px;
   }
 }
